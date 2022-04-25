@@ -27,6 +27,11 @@ class BaseJobAttrViewSet(viewsets.GenericViewSet,
             user=self.request.user
         ).order_by('-name').distinct()
 
+    def perform_create(self, serializer):
+        """Create a new object"""
+        
+        serializer.save(user=self.request.user)
+
 class TagViewSet(BaseJobAttrViewSet):
     """Manage tags in the database"""
 
