@@ -9,7 +9,8 @@ from job_seeker import serializers
 
 class EducationDetailViewSet(
     viewsets.GenericViewSet,
-    mixins.ListModelMixin
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin
     ):
     """Manage education details in the database"""
 
@@ -21,4 +22,9 @@ class EducationDetailViewSet(
     def get_queryset(self):
         """Return objects for the current authenticated user"""
 
-        return self.queryset.filter(user=self.request.user).order_by('-id')
+        return self.queryset.filter(user=self.request.user).order_by('id')
+
+    def perform_create(self, serializer):
+        """create a new education detail"""
+
+        serializer.save(user=self.request.user)

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'core',
     'user',
     'job',
+    'job_seeker',
 ]
 
 MIDDLEWARE = [
@@ -139,4 +140,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'core.user'
+AUTH_USER_MODEL = 'core.User'

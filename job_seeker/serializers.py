@@ -7,5 +7,13 @@ class EducationDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = EducationDetail
-        fields = '__all__' 
-        read_only_fields = ['id']
+        fields = (
+            "certified_degree_name",
+            "major",
+            "institute_university_name",
+            "start_year",
+            "complete_year",
+            "percentage",
+            "cgpa"
+        )
+        read_only_fields = ("id",)
