@@ -10,7 +10,8 @@ class UserAdmin(BaseUserAdmin):
     fieldsets = (
         (None, {"fields": ("email", "password")}),
         (_("personal Info"), {"fields": ("name",)}),
-        (_("permissions"), {"fields": ("is_active", "is_staff", "is_superuser")}),
+        (_("permissions"), {
+         "fields": ("is_active", "is_staff", "is_superuser")}),
         (_("Important dates"), {"fields": ("last_login",)}),
     )
     add_fieldsets = (
@@ -25,6 +26,10 @@ class UserAdmin(BaseUserAdmin):
 
 
 admin.site.register(models.User, UserAdmin)
-admin.site.register(models.Tag)
+# admin.site.register(models.Tag)
 admin.site.register(models.SeekerProfile)
+admin.site.register(models.SkillSet)
 admin.site.register(models.EducationDetail)
+admin.site.register(models.BusinessStream)
+admin.site.register(models.CompanyProfile)
+admin.site.register(models.JobPost)
